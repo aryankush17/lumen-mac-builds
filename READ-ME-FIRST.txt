@@ -4,6 +4,9 @@ Prepared from the original Lumen, including Overview and grouped navigation.
 The rejected Lumen Next interface is not included.
 
 STATUS
+Updated packaging: Chromium is copied intact after PyInstaller completes, so its
+nested framework layout and signatures are preserved. Lumen's outer signature
+is then refreshed and verified. A signature failure still stops the build.
 This is source code and a native Mac build recipe. It has NOT been built or
 tested on macOS. It is not a ready-to-install DMG. No Mac was available during
 preparation. Share this kit only with someone you trust with Lumen's source.

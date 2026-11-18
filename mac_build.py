@@ -29,6 +29,16 @@ def validate_archive_member(member, destination):
         if not link.is_relative_to(destination):
             raise SystemExit('Unsafe Node archive link: ' + member.name)
 
+def attach_browsers(bundle, browsers):
+    """Preserve Chromium's nested frameworks, symlinks and vendor signatures."""
+    destination = bundle / 'Contents/Resources/ms-playwright'
+    if not browsers.is_dir() or not any(browsers.glob('chromium-*')):
+        raise RuntimeError('Downloaded Chromium bundle is missing; refusing to package an incomplete app.')
+    run(['ditto', browsers, destination])
+    # Re-seal only the containing app. --deep signing would rewrite Chromium again.
+    run(['codesign', '--force', '--sign', '-', '--timestamp=none', bundle])
+    run(['codesign', '--verify', '--deep', '--strict', bundle])
+
 def main():
     if sys.platform != 'darwin':
         raise SystemExit('Build on macOS; Windows cannot produce this installer.')
@@ -87,13 +97,14 @@ def main():
 from PyInstaller.utils.hooks import collect_submodules
 root = Path(SPECPATH)
 datas = []
-for folder in ['assets','pages_ui/dist','website_builder/client/dist','website_builder/server/dist','website_builder/server/node_modules','website_builder/server/templates','ms-playwright','legal']:
+for folder in ['assets','pages_ui/dist','website_builder/client/dist','website_builder/server/dist','website_builder/server/node_modules','website_builder/server/templates','legal']:
     datas.append((str(root / folder), folder))
 for name in ['config.default.json','VERSION','logo.png']:
     datas.append((str(root/name), '.'))
 datas.append((str(root/'website_builder/node/LICENSE'),'website_builder/node'))
 a = Analysis([str(root/'app.py')], pathex=[str(root)], datas=datas,
     binaries=[(str(root/'website_builder/node/node'),'website_builder/node')],
+    runtime_hooks=[str(root/'mac_runtime_hook.py')],
     hiddenimports=['website_builder_bridge','website_generation','pages_store','crm_store']+collect_submodules('qrcode'), excludes=['playwright'])
 pyz = PYZ(a.pure)
 exe = EXE(pyz,a.scripts,[],exclude_binaries=True,name='Lumen',console=False,target_arch=None,codesign_identity=None)
@@ -105,7 +116,7 @@ app = BUNDLE(coll,name='Lumen.app',bundle_identifier='local.lumen.desktop',versi
     specfile.write_text(spec)
     run([python, '-m', 'PyInstaller', '--noconfirm', '--clean', '--distpath', work/'dist', '--workpath', work/'build', specfile], stage, env)
     bundle = work / 'dist/Lumen.app'
-    run(['codesign', '--verify', '--deep', '--strict', bundle])
+    attach_browsers(bundle, browsers)
     dmg_stage = work / 'dmg'
     dmg_stage.mkdir()
     run(['ditto', bundle, dmg_stage/'Lumen.app'])
