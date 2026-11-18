@@ -1,0 +1,56 @@
+LUMEN — MAC BUILD KIT (not an installer)
+
+Prepared from the original Lumen, including Overview and grouped navigation.
+The rejected Lumen Next interface is not included.
+
+STATUS
+This is source code and a native Mac build recipe. It has NOT been built or
+tested on macOS. It is not a ready-to-install DMG. No Mac was available during
+preparation. Share this kit only with someone you trust with Lumen's source.
+
+ON THE MAC
+1. Extract the ZIP to a normal local folder.
+2. Install Python 3.11 or newer from https://www.python.org/downloads/macos/ .
+   Use native Apple Silicon Python on an M-series Mac, not Rosetta.
+3. In Terminal run: xcode-select --install
+   Complete Apple's installer if the command-line tools are not already present.
+4. In Terminal type cd followed by a space, drag the extracted folder into
+   Terminal, and press Return.
+5. Run: bash "Build Lumen.command"
+
+Internet access and several GB of free disk space are needed. The script
+downloads official Node, Python packages, JavaScript dependencies and Chromium.
+It builds the interface and packages Python, Node and Chromium with the app.
+Build architecture follows the Mac/Python used: arm64 for M-series; x64 for Intel.
+Use a matching Mac for each architecture. This is not a universal binary.
+Native dependencies and supported macOS versions still require a real Mac test.
+
+RESULT
+On success, Output contains Lumen-...-macOS-arm64-....dmg or ...-x64-....dmg,
+plus a SHA-256 checksum. Send the DMG, not this source kit, to ordinary users.
+The recipient opens it and drags Lumen into Applications.
+Build output is ad-hoc signed, not Developer ID signed or Apple notarized.
+Do not disable Gatekeeper globally. Apple's trusted-app exception guidance:
+https://support.apple.com/en-us/102445
+
+DATA AND ACCESS
+No saved config, licence, API keys, pages, leads, contacts, history, runtime
+databases, .env files, or Windows dependencies are included.
+Your friend needs her own valid Lumen activation key and her own API settings.
+Licensing has not been bypassed. Existing online licensing and hosted Agency
+Brain remain external dependencies and need internet access.
+Local data is stored under ~/Library/Application Support/Lumen .
+Studio logs, database and screenshots use its website-builder subfolder.
+
+TEST BEFORE SENDING THE DMG
+- Install in Applications and activate using a test licence for this Mac.
+- Verify Overview, navigation, settings, themes and refresh restoration.
+- Create a Workspace page and collection; restart and verify persistence.
+- Create and remove a test CRM contact; test a document export.
+- Open Studio, edit a template and export; test audit/browser capture.
+- Verify hosted Brain access with the correct permissions.
+- Verify no writes occur inside Lumen.app and no personal data is bundled.
+- Test paid discovery or sending only intentionally with your own credentials.
+If a build fails, keep the Terminal error and the printed temporary build path.
+
+The original Windows application and its build scripts are unchanged.

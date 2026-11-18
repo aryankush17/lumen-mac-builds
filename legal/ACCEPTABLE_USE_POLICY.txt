@@ -1,0 +1,78 @@
+LEAD ENGINE - ACCEPTABLE USE POLICY (AUP)
+Version 1.7   |   Last updated: 2026
+This Acceptable Use Policy forms part of the End User License Agreement (EULA).
+By using Lead Engine you agree to it. Breaking it is a breach of the EULA and can
+result in immediate, non-refundable revocation of your License Key.
+
+You are the sender of every message and the data controller for every contact
+you collect. The Software gives you tools to stay compliant; following this
+policy is your responsibility.
+
+1. WHAT YOU MAY DO
+  - Contact BUSINESSES (business-to-business) about genuine, relevant services.
+  - Use only email addresses a business has actually PUBLISHED itself (the
+    Software collects these; it never guesses or dictionary-generates addresses).
+  - Operate only in the countries you have set on the Targets page, chosen so
+    that opt-out B2B email is workable there.
+
+2. WHAT YOU MUST NOT DO
+Email content and conduct:
+  - Do NOT email consumers / private individuals, or any address that is not a
+    business contact, without a proper lawful basis (e.g. prior consent).
+  - Do NOT use false, forged, or misleading "From", "Reply-To", routing, or
+    header information.
+  - Do NOT use deceptive or misleading subject lines.
+  - Do NOT remove, fake, or disable the mailing address or the unsubscribe
+    mechanism in your emails.
+  - Do NOT continue contacting anyone who has opted out, asked to stop, or been
+    added to the suppression list.
+  - Do NOT send unlawful, deceptive, fraudulent, phishing, malware-bearing,
+    harassing, hateful, sexual, or otherwise illegal or harmful content.
+
+Data and addresses:
+  - Do NOT harvest addresses by automated scraping of pages, or generate them by
+    guessing patterns (e.g. info@domain). The Software is built not to do this -
+    do not try to defeat that.
+  - Do NOT buy, sell, or import third-party email lists into the Software.
+  - Do NOT process personal data unlawfully or beyond what your outreach needs.
+
+Jurisdictions (this is where people get into trouble):
+  - The EU/EEA, the UK, and Canada require PRIOR CONSENT for most marketing
+    email (GDPR/ePrivacy, UK GDPR/PECR, CASL). Do NOT add these countries to your
+    allow-list unless you have a documented, compliant consent basis and have
+    taken local advice. The default allow-list deliberately excludes them.
+  - For India, treat recipients under the DPDP Act, 2023 carefully (it is
+    consent-centric and still being operationalised).
+  - For the US, comply fully with the CAN-SPAM Act (accurate headers, honest
+    subject, postal address, working opt-out honoured promptly, no harvested or
+    guessed addresses).
+
+Sending infrastructure:
+  - Use dedicated accounts on a separate sending domain - never your personal or
+    main-business inbox.
+  - Configure SPF, DKIM, and DMARC, and respect mailbox-provider bulk-sender
+    rules (e.g. Gmail/Yahoo one-click unsubscribe and the <0.3% spam-complaint
+    expectation). Warm new accounts up slowly.
+  - Use only accounts you own and are authorised to send from. Never use stolen,
+    shared, or third-party credentials.
+
+The Software and your key:
+  - Do NOT share, resell, or sublicense the Software or your License Key.
+  - Do NOT reverse engineer, decompile, or tamper with the Software or its
+    compliance controls.
+
+3. HONOURING OPT-OUTS
+The Software checks your sending mailboxes and automatically suppresses anyone
+who replies "stop"/"unsubscribe"/"remove me" before each send, and includes a
+List-Unsubscribe option in every email. You must keep this on, must not contact
+anyone who has opted out, and must honour any opt-out you receive by any other
+means without undue delay (and at least within the time your market's law
+requires).
+
+4. ENFORCEMENT
+We may investigate suspected violations and may suspend or permanently revoke
+your License Key, with no refund, for any breach of this policy or of applicable
+law. We may also be required to cooperate with lawful requests from authorities.
+
+5. REPORTING ABUSE
+Report suspected misuse of the Software to [SUPPORT/LEGAL EMAIL].

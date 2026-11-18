@@ -1,0 +1,7 @@
+import {useEffect,useRef,useState} from 'react';
+export type SavedVersion={revision:number;saved:string;title:string;preview:string};
+export function PageHistory({versions,onClose,onRestore}:{versions:SavedVersion[];onClose:()=>void;onRestore:(revision:number)=>Promise<void>}){
+ const dialog=useRef<HTMLDialogElement>(null);const [busy,setBusy]=useState(false);
+ useEffect(()=>{dialog.current?.showModal();},[]);
+ return <dialog ref={dialog} className="version-history" aria-label="Page history" onCancel={e=>{if(busy)e.preventDefault();}} onClose={onClose}><div className="tools-heading"><div><h2>Page history</h2><p>Up to 50 previous saved versions, starting with this update. Restoring saves your current version first.</p></div><button disabled={busy} aria-label="Close page history" onClick={()=>dialog.current?.close()}>✕</button></div>{!versions.length?<p>No previous versions yet. They appear as you save changes.</p>:versions.map(v=><section key={v.revision}><div><strong>{v.title||'Untitled'}</strong><small>{new Date(v.saved).toLocaleString()} · version {v.revision}</small></div><p>{v.preview||'Empty page'}</p><button disabled={busy} onClick={async()=>{if(!window.confirm('Restore this title, cover and page content? The current version will remain in history.'))return;setBusy(true);try{await onRestore(v.revision);}finally{setBusy(false);}}}>Restore version {v.revision}</button></section>)}</dialog>;
+}

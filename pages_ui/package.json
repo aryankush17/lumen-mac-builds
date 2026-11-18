@@ -1,0 +1,32 @@
+{
+  "name": "lumen-pages",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build && node scripts/notices.mjs",
+    "format": "prettier --write src vite.config.ts scripts package.json tsconfig.json"
+  },
+  "dependencies": {
+    "@blocknote/core": "0.56.0",
+    "@blocknote/mantine": "0.56.0",
+    "@blocknote/react": "0.56.0",
+    "@mantine/core": "8.3.11",
+    "@mantine/hooks": "8.3.11",
+    "lucide-react": "0.378.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/postcss-prefix-selector": "1.16.3",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "postcss": "8.5.31",
+    "postcss-prefix-selector": "2.1.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vite": "8.3.5"
+  }
+}

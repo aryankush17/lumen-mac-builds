@@ -1,0 +1,45 @@
+#v-settings [hidden]{display:none!important}
+.settings-intro{margin:10px 0 30px}
+.settings-intro h2{font:400 38px/1.2 Newsreader,Georgia,serif;margin:10px 0}
+.settings-intro p{color:var(--theme-muted)}
+.settings-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1080px}
+.settings-option{display:flex;align-items:center;gap:20px;text-align:left;padding:28px;border:1px solid var(--theme-brand);border-radius:12px;background:var(--theme-nav);color:var(--theme-text);cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .18s,transform .18s,border-color .18s}
+.settings-option:hover{transform:translateY(-2px);border-color:var(--theme-accent)}
+.settings-option:focus-visible,.settings-back:focus-visible{outline:2px solid var(--theme-accent);outline-offset:4px}
+.settings-option>span:nth-child(2){flex:1}
+.settings-option strong{display:block;font-size:18px;font-weight:600;margin-bottom:8px}
+.settings-option small{display:block;font-size:13px;line-height:1.7;color:var(--theme-muted)}
+.settings-option-icon{display:grid;place-items:center;flex:0 0 46px;height:46px;border-radius:12px;background:var(--theme-brand);font-size:26px}
+.settings-back{margin-bottom:18px}
+#settings-page-title{font:400 34px/1.2 Newsreader,Georgia,serif;margin:0 0 24px}
+#settings-detail{animation:settings-arrive .18s ease-out}
+@keyframes settings-arrive{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.settings-options{grid-template-columns:1fr}.settings-option{padding:20px}}
+@media(prefers-reduced-motion:reduce){#settings-detail{animation:none}.settings-option{transition:none}.settings-option:hover{transform:none}}
+.theme-settings{margin:0 0 30px;padding:26px;background:var(--theme-nav);border:1px solid var(--theme-brand);border-radius:10px;color:var(--theme-text)}
+.theme-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.theme-heading h2{font:400 32px/1.2 Newsreader,Georgia,serif;margin:8px 0}
+.theme-heading p,#theme-status{font:400 13px/1.6 'DM Sans',sans-serif;color:var(--theme-muted)}
+.theme-auto{font-size:11px;white-space:nowrap;border:1px solid var(--theme-muted);border-radius:20px;padding:5px 10px}
+#theme-status{min-height:21px;margin:16px 0}
+.theme-settings fieldset{border:0;margin:20px 0 0;padding:0;min-width:0}
+.theme-settings legend{font:500 14px 'DM Sans',sans-serif;margin-bottom:12px;padding:0}
+.theme-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.theme-choice{min-width:0;text-align:left;border:1px solid var(--theme-muted);background:var(--theme-base);color:var(--theme-text);border-radius:8px;padding:7px;cursor:pointer;transition:transform .15s,border-color .15s; font-family:'DM Sans',sans-serif}
+.theme-choice:hover{transform:translateY(-2px);border-color:var(--theme-accent)}
+.theme-choice[aria-pressed=true]{outline:2px solid var(--theme-accent);outline-offset:2px}
+.theme-choice:focus-visible{outline:3px solid var(--theme-text);outline-offset:3px}
+.theme-choice-label{display:block;font-size:12px;font-weight:500;margin:12px 3px 6px}
+.theme-check{display:block;margin:0 3px 6px;font-size:11px;color:var(--theme-muted)}
+.theme-sample{height:88px;display:flex;border-radius:4px;overflow:hidden;background:var(--sample-base);border:1px solid var(--sample-muted)}
+.theme-sample-nav{width:22%;background:var(--sample-nav);padding:12px 5px}
+.theme-sample-nav i{display:block;height:3px;margin:0 0 9px;background:var(--sample-muted)}
+.theme-sample-nav i:first-child{background:var(--sample-accent);height:7px}
+.theme-sample-main{flex:1;min-width:0;padding:12px 9px}
+.theme-sample-main>b{display:block;width:65%;height:4px;background:var(--sample-text)}
+.theme-sample-main>i{display:block;width:85%;height:2px;background:var(--sample-muted);margin:7px 0 10px}
+.theme-sample-main>span{display:flex;gap:5px;height:29px}
+.theme-sample-main>span>i{flex:1;background:var(--sample-brand);border-top:2px solid var(--sample-accent)}
+@media(max-width:1150px){.theme-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.theme-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.theme-settings{padding:16px}.theme-auto{display:none}.theme-heading h2{font-size:28px}}
+@media(prefers-reduced-motion:reduce){.theme-choice{transition:none}.theme-choice:hover{transform:none}}

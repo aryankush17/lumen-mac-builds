@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/lumen-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lumen — AI-powered Website Strategy, Audit & Opportunity Intelligence Platform for agencies." />
+    <meta name="theme-color" content="#151514" />
+    <title>Lumen — Website Studio</title>
+    <link rel="stylesheet" href="/fonts/catalog.css" />
+    <link rel="stylesheet" href="/editor-shell.css" />
+    <link rel="stylesheet" href="/studio-themes.css" />
+    <script src="/lumen-theme.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #lumen-boot{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#151514;transition:opacity .45s ease}
+      #lumen-boot.off{opacity:0;pointer-events:none}
+      #lumen-boot img{width:96px;height:96px;animation:lumenspin 2.2s linear infinite}
+      @keyframes lumenspin{to{transform:rotate(360deg)}}
+    </style>
+  </head>
+  <body>
+    <div id="lumen-boot" aria-hidden="true"><img src="/lumen-logo.png" alt="" /></div>
+    <div id="root"></div>
+    <script>
+      (function () {
+        var boot = document.getElementById("lumen-boot");
+        var t0 = Date.now();
+        function dismiss() {
+          var wait = Math.max(0, 800 - (Date.now() - t0));
+          setTimeout(function () {
+            boot.classList.add("off");
+            setTimeout(function () { boot.remove(); }, 500);
+          }, wait);
+        }
+        var root = document.getElementById("root");
+        var mo = new MutationObserver(function () {
+          if (root.children.length) { mo.disconnect(); dismiss(); }
+        });
+        mo.observe(root, { childList: true });
+        setTimeout(dismiss, 6000); // failsafe
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

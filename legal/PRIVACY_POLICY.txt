@@ -1,0 +1,96 @@
+LEAD ENGINE - PRIVACY POLICY
+Version 1.7   |   Last updated: 2026
+
+ PUBLISHER TO COMPLETE
+Fill in [BRACKETED] fields. Under India's DPDP Act, 2023 you must name a contact
+for privacy queries (and a Grievance Officer if/when required). Have this
+reviewed before distribution. This template is not legal advice.
+
+  Data controller:   [LEGAL ENTITY NAME], trading as AdFlorea
+  Address:           [REGISTERED ADDRESS], Dehradun, Uttarakhand, India
+  Privacy contact:   [PRIVACY EMAIL]
+
+1. SCOPE
+This policy covers (a) the Lead Engine desktop software and (b) the online
+activation/licensing service that checks your License Key. It explains the
+limited data WE receive, what stays on YOUR computer, and your responsibilities
+for the business contacts you collect.
+
+2. THE SOFTWARE RUNS LOCALLY
+Lead Engine runs entirely on your computer. The following NEVER leave your
+machine and are NEVER sent to us:
+  - the business leads you collect (the "runs" folder and CSV files);
+  - the content of the emails you send;
+  - your email/SMTP/IMAP passwords and your Google Places API key (these are
+    stored only in config.json on your device and are ENCRYPTED at rest with a
+    key tied to your machine);
+  - your sending logs and suppression list.
+
+3. WHAT WE RECEIVE (LICENSING ONLY)
+To activate and protect your licence, the Software sends our activation service
+only:
+  - your License Key;
+  - a one-way fingerprint ("machine ID") of your device;
+  - the activation/verification timestamp and the app version;
+  - your IP address, as an automatic part of making that web request.
+We use this solely to issue, verify, bind-to-one-device, and revoke licences,
+and to offer support. We do not use it for advertising and we do not sell it.
+
+4. SERVICE PROVIDERS WE USE
+  - Hosting of the activation endpoint: [HOSTING PROVIDER, e.g. Vercel].
+  - Licence records: [RECORDS PROVIDER, e.g. Airtable].
+These providers process the licensing data above on our behalf under their own
+security terms.
+
+5. SERVICES YOU CONNECT (SEPARATE CONTROLLERS)
+When you use the Software it talks directly, from your machine, to:
+  - the Google Maps Platform / Places API (using your own key) - governed by
+    Google's terms and privacy policy;
+  - your email and IMAP providers (using your own accounts).
+We do not receive data from these connections. Your use of them is governed by
+those providers' own policies.
+
+6. THE CONTACTS YOU COLLECT - YOU ARE THE CONTROLLER
+When you collect and email business contacts, YOU - not us - are the data
+controller for that personal data. You are responsible for:
+  - having a lawful basis to process and contact them;
+  - giving recipients the privacy information your law requires;
+  - honouring opt-outs and any access/erasure requests they make;
+  - keeping the data only as long as you need it and securing it.
+The Software helps (encryption at rest, automatic opt-out suppression, a
+suppression list), but the legal responsibility for these contacts is yours.
+
+7. SECURITY
+Credentials and your API key are encrypted at rest on your device. The activation
+service is reached over HTTPS. No system is perfectly secure; keep your computer
+and accounts protected and your License Key confidential.
+
+8. RETENTION
+Licensing data is kept for as long as your licence is active and for a
+reasonable period afterwards for records, support, and anti-fraud purposes, then
+deleted or anonymised. Data on your device stays until you delete it or uninstall
+the Software.
+
+9. YOUR RIGHTS
+Subject to applicable law (including the GDPR/UK GDPR and India's DPDP Act where
+they apply to you), you may ask us to access, correct, or delete the licensing
+data we hold about you, or to restrict or object to its processing. Contact
+[PRIVACY EMAIL]. For data the Software stores on your own device, you control it
+directly. For business contacts YOU collected, requests from those contacts go
+to you as their controller, not to us.
+
+10. INTERNATIONAL TRANSFERS
+Our service providers may process licensing data outside your country. Where
+required, we rely on appropriate safeguards for such transfers.
+
+11. CHILDREN
+The Software is for business use by adults (18+). It is not directed at, and must
+not be used by, anyone under 18.
+
+12. CHANGES
+We may update this policy for new versions; the current version ships with the
+Software. Material changes will be noted in release notes.
+
+13. GOVERNING LAW AND CONTACT
+This policy is governed by the laws of India. Questions or requests:
+[PRIVACY EMAIL]. [Name a Grievance Officer here if required under the DPDP Act.]

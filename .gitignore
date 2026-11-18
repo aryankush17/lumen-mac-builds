@@ -1,0 +1,13 @@
+node_modules/
+dist/
+Output/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+.env*
+config.json
+license.json
+*.db
+*.sqlite*
+MANIFEST.sha256.json

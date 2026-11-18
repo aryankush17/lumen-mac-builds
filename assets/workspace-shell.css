@@ -1,0 +1,385 @@
+/* Workspace uses the same type and materials while preserving document formatting. */
+#v-sheets{max-width:none}
+body[data-view=sheets] .pageintro{display:none}
+#lumen-workspace{height:calc(100dvh - 126px);min-height:560px;border:0;border-radius:8px;overflow:hidden}
+#lumen-workspace[data-integrated=true]{font-family:var(--sans)}
+#lumen-workspace[data-integrated=true][data-theme=dark]{--bg:#1c262e;--sidebar:#151e25;--hover:#9cb6cb15;--line:#354550;--ink:#e9e7e0;--muted:#a9b9c5;--accent:#a2b8a0}
+#lumen-workspace .workspace{height:100%;grid-template-columns:210px minmax(0,1fr)}
+#lumen-workspace .workspace.sidebar-closed{grid-template-columns:minmax(0,1fr)}
+#lumen-workspace .workspace-loading{height:100%;display:grid;place-items:center}
+#lumen-workspace .home{padding:36px 42px;max-width:1300px}
+#lumen-workspace .home-heading h1{font:400 40px/1.1 Newsreader,Georgia,serif;letter-spacing:-.6px}
+#lumen-workspace .home-heading{margin-bottom:34px}
+#lumen-workspace .home-heading p{font:400 13px/1.7 'DM Sans',sans-serif}
+#lumen-workspace .workspace-label{padding:10px 8px 22px}
+#lumen-workspace .workspace-label strong{font:500 13px 'DM Sans',sans-serif}
+#lumen-workspace .nav-row{font:400 12px 'DM Sans',sans-serif;padding:10px;border-radius:5px}
+#lumen-workspace .recent-grid{gap:16px}
+#lumen-workspace .recent-page{padding:22px;border-radius:4px;border:0;border-top:2px solid #7d99ac;background:var(--sidebar);transition:background .16s}
+#lumen-workspace .recent-page:nth-child(2){border-top-color:#a7b89c}
+#lumen-workspace .recent-page:nth-child(3){border-top-color:#b5a287}
+#lumen-workspace .recent-page strong{font:500 15px 'DM Sans',sans-serif;margin-bottom:12px}
+#lumen-workspace .recent-icon{font-size:18px;margin-bottom:12px}
+#lumen-workspace .page-library .card-open{padding:17px 12px}
+#lumen-workspace .page-library .card-open strong{font:400 14px 'DM Sans',sans-serif}
+#lumen-workspace .home .welcome{border:0;border-radius:4px;border-left:2px solid var(--accent);padding:30px}
+#lumen-workspace .welcome h2{font:400 29px Newsreader,Georgia,serif}
+#lumen-workspace button{transition:background .15s,color .15s}
+#legacy-sheets{margin-top:14px}#legacy-sheets>summary{cursor:pointer;color:var(--muted);font-size:12px;padding:8px}
+#legacy-sheets[open] .sheets-list{margin-top:10px}
+@media(max-width:850px){#lumen-workspace .home{padding:28px}#lumen-workspace .workspace{grid-template-columns:180px minmax(0,1fr)}}
+@media(max-width:580px){#lumen-workspace .workspace{grid-template-columns:minmax(0,1fr)}#lumen-workspace .home{padding:22px}#lumen-workspace .home-heading h1{font-size:30px}#lumen-workspace{min-height:640px}}
+/* Native module layout: page directory and writing canvas share the Lumen surface. */
+body[data-view=sheets] .pageintro{display:block}
+#lumen-workspace{height:calc(100dvh - 230px);min-height:620px;border-radius:0;background:var(--theme-base)}
+#lumen-workspace .workspace{gap:24px;background:transparent;grid-template-columns:200px minmax(0,1fr)}
+#lumen-workspace .workspace>aside{background:transparent;border-right:1px solid var(--line);padding:0 18px 0 0}
+#lumen-workspace .workspace-label{padding:8px 6px 20px;color:var(--muted)}
+#lumen-workspace .workspace-label strong{font:500 10px 'DM Sans',sans-serif;letter-spacing:1.5px}
+#lumen-workspace .workspace>main{background:transparent}
+#lumen-workspace .workspace>main>header{background:transparent;padding:0 4px 12px;height:42px}
+#lumen-workspace .home{padding:28px 8px 35px}
+#lumen-workspace .home-heading h1{font-size:34px}
+#lumen-workspace .sidebar-footer{padding-top:18px}
+#lumen-workspace article{width:100%;padding:28px clamp(22px,4vw,62px) 80px}
+#lumen-workspace textarea.page-title{font-family:Newsreader,Georgia,serif;font-weight:400}
+#lumen-workspace .workspace.sidebar-closed{grid-template-columns:minmax(0,1fr)}
+@media(max-width:850px){#lumen-workspace .workspace{gap:16px;grid-template-columns:170px minmax(0,1fr)}}
+@media(max-width:580px){#lumen-workspace .workspace{grid-template-columns:minmax(0,1fr)}#lumen-workspace .workspace>aside{border:0;padding:0}#lumen-workspace .home{padding:20px 2px}#lumen-workspace .workspace.sidebar-closed{display:grid}}
+@media(max-width:580px){#lumen-workspace .workspace>aside{background:var(--theme-base);padding:12px;box-shadow:8px 0 30px #0003}}
+
+/* Integrated Workspace belongs to #content's scroll flow, not a second viewport.
+   The view scope also wins over the generated palette copies of the old sizing. */
+#v-sheets #lumen-workspace[data-integrated=true]{height:auto;min-height:0;overflow:visible;background:transparent;border:0;border-radius:0}
+#v-sheets #lumen-workspace .workspace{height:auto;min-height:0;overflow:visible;align-items:start;position:relative}
+#v-sheets #lumen-workspace .workspace>main{height:auto;min-height:0;overflow:visible;background:transparent}
+#v-sheets #lumen-workspace .home,
+#v-sheets #lumen-workspace .page-scroll{height:auto;max-height:none;overflow:visible;flex:none}
+#v-sheets #lumen-workspace .workspace>aside{height:auto;max-height:none;overflow:visible;align-self:stretch}
+#v-sheets #lumen-workspace .workspace>main>header{position:relative;min-height:42px;height:auto;flex-wrap:wrap;padding:8px 4px;border-bottom:1px solid var(--line)}
+#v-sheets #lumen-workspace .workspace-loading{min-height:180px;height:auto}
+#lumen-workspace .tree-row[draggable=true]{cursor:grab}
+#lumen-workspace .tree-row.page-dragging{opacity:.45}
+#lumen-workspace .page-root-drop{margin:6px 4px 10px;padding:10px 8px;border:1px dashed var(--line);border-radius:5px;color:var(--muted);font-size:11px;text-align:center}
+#lumen-workspace .page-root-drop.drag-active{border-color:var(--accent);color:var(--ink)}
+#lumen-workspace .page-drop-target{background:var(--hover);outline:2px solid var(--accent);outline-offset:-2px}
+#lumen-workspace .page-move-notice{font-size:11px;line-height:1.5;color:var(--muted);padding:8px;margin:0}
+#lumen-workspace .document-guide{margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:10px}
+#lumen-workspace .document-guide-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+#lumen-workspace .document-guide-bar button{color:var(--ink);font-size:12px}
+#lumen-workspace .document-guide-bar button span{font-size:10px;color:var(--muted)}
+#lumen-workspace .document-guide nav{display:grid;gap:3px;margin-top:12px;border-left:2px solid var(--accent)}
+#lumen-workspace .document-guide nav button{justify-content:flex-start;text-align:left;font-size:12px;padding:8px 12px}
+#lumen-workspace .document-guide nav p{font-size:12px;color:var(--muted);padding:8px 12px}
+#lumen-workspace .workspace-jump{box-shadow:inset 3px 0 var(--accent);background:var(--hover);transition:background .2s}
+#lumen-workspace .workspace-tools-panel{border:1px solid var(--line);border-radius:7px;padding:22px;margin:16px 0 20px;background:var(--bg)}
+#lumen-workspace .tools-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:20px}
+#lumen-workspace .tools-heading h2{font-size:20px;font-weight:500;margin:0 0 8px}
+#lumen-workspace .tools-heading p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
+#lumen-workspace .template-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#lumen-workspace .template-choices button{display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:18px;border:1px solid var(--line);gap:10px}
+#lumen-workspace .template-choices strong{font-size:14px;font-weight:500}
+#lumen-workspace .template-choices span{font-size:12px;color:var(--muted);line-height:1.6}
+#lumen-workspace .template-choices small{font-size:11px;color:var(--accent)}
+#lumen-workspace .action-radar-list{display:grid;margin-top:14px}
+#lumen-workspace .action-radar-list button{display:flex;gap:14px;text-align:left;border-bottom:1px solid var(--line);padding:14px 5px}
+#lumen-workspace .action-radar-list button>span:nth-child(2){flex:1;min-width:0;display:grid;gap:6px}
+#lumen-workspace .action-radar-list strong{font-size:13px;font-weight:400;overflow-wrap:anywhere}
+#lumen-workspace .action-radar-list small,#lumen-workspace .workspace-tools-panel>small{font-size:11px;color:var(--muted)}
+#lumen-workspace .search-result-copy{min-width:0;display:grid;gap:5px;flex:1}
+#lumen-workspace .search-result-copy strong{font-weight:500}
+#lumen-workspace .search-result-copy small{font-size:11px;line-height:1.5;color:var(--muted);white-space:normal;overflow-wrap:anywhere}
+@media(max-width:580px){#lumen-workspace .template-choices{grid-template-columns:1fr}#lumen-workspace .workspace-tools-panel{padding:16px}}
+/* The shell's generic focus ring should not frame the entire document. */
+#lumen-workspace .bn-editor[contenteditable=true]:focus,
+#lumen-workspace .bn-editor[contenteditable=true]:focus-visible{outline:none;box-shadow:none}
+/* Approved Compact layout, scoped to Workspace so other modules keep their layout. */
+body[data-view=sheets] .app .side{width:58px;min-width:58px;padding:10px 5px}
+body[data-view=sheets] .app .navi{min-height:43px;padding:10px 4px}
+body[data-view=sheets] .app .navi .navtext{display:none!important}
+body[data-view=sheets] #content{padding:16px 24px 40px}
+body[data-view=sheets] #content>.pageintro{display:none}
+body[data-view=sheets] .app .topbar{height:48px;min-height:48px}
+body[data-view=sheets] .app .tb-brand img{width:24px;height:24px}
+body[data-view=sheets] .app .tb-nm{font-size:24px}
+#v-sheets #lumen-workspace .workspace{gap:20px;grid-template-columns:190px minmax(0,1fr)}
+#v-sheets #lumen-workspace .workspace.sidebar-closed{grid-template-columns:minmax(0,1fr)}
+#v-sheets #lumen-workspace article{max-width:1050px;padding:35px clamp(20px,4vw,60px) 80px}
+#v-sheets #lumen-workspace .workspace>aside{padding:12px 16px 0 0}
+#v-sheets #lumen-workspace .workspace-label{padding-bottom:16px}
+#v-sheets #lumen-workspace .workspace-label button{display:inline-flex;flex-shrink:0;min-width:30px;min-height:30px;justify-content:center}
+@media(max-width:850px){
+  body[data-view=sheets] #content{padding:12px 15px 30px}
+  #v-sheets #lumen-workspace .workspace{grid-template-columns:160px minmax(0,1fr);gap:15px}
+  #v-sheets #lumen-workspace article{padding:24px 12px 60px}
+}
+@media(max-width:580px){
+  body[data-view=sheets] .app .side{width:46px;min-width:46px}
+  #v-sheets #lumen-workspace .workspace{grid-template-columns:minmax(0,1fr)}
+  #v-sheets #lumen-workspace .workspace>aside{position:relative;inset:auto;width:100%;box-shadow:none;border-bottom:1px solid var(--line);padding:0 0 18px;margin-bottom:12px}
+  #v-sheets #lumen-workspace .workspace>main>header{gap:6px}
+  #v-sheets #lumen-workspace .workspace>main>header .header-actions{flex-wrap:wrap}
+}
+/* Workspace destinations: restrained, theme-derived landmarks. */
+#lumen-workspace .workspace-tools-panel{border:0;padding:32px clamp(16px,3vw,44px) 64px;margin:0;max-width:1200px;width:100%;box-sizing:border-box}
+#lumen-workspace .tools-heading h1{font-family:var(--font-display,Georgia,serif);font-size:clamp(28px,3vw,40px);font-weight:500;letter-spacing:-.035em;margin:8px 0 12px}
+#lumen-workspace .tools-heading{gap:20px;margin-bottom:28px}
+#lumen-workspace .tool-badge{align-self:flex-start;white-space:nowrap;border:1px solid var(--line);background:color-mix(in srgb,var(--accent) 9%,transparent);padding:7px 11px;border-radius:20px;color:var(--muted);font-size:11px}
+#lumen-workspace .template-choices{gap:20px}
+#lumen-workspace .template-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;padding:24px;display:flex;flex-direction:column;min-width:0;background:color-mix(in srgb,var(--accent) 4%,transparent)}
+#lumen-workspace .template-card:nth-child(2),#lumen-workspace .template-card:nth-child(3){background:transparent}
+#lumen-workspace .template-card-top{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+#lumen-workspace .template-symbol{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--text);font-size:26px}
+#lumen-workspace .tone-1 .template-symbol{border-radius:50%;background:color-mix(in srgb,var(--muted) 15%,transparent)}
+#lumen-workspace .tone-2 .template-symbol{border-radius:6px;background:color-mix(in srgb,var(--accent) 8%,transparent)}
+#lumen-workspace .template-card h2{font-family:Georgia,serif;font-size:24px;font-weight:500;margin:0 0 10px}
+#lumen-workspace .template-card p{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 18px;max-width:42ch}
+#lumen-workspace .template-map{list-style:decimal-leading-zero;padding:0 0 0 24px;margin:0 0 24px;display:grid;gap:9px;font-size:12px;line-height:1.5}
+#lumen-workspace .template-map li::marker{color:var(--accent);font-size:10px}
+#lumen-workspace .template-card-footer{border-top:1px solid var(--line);padding-top:15px;margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+#lumen-workspace .template-choices .template-card-footer button{padding:9px 12px;display:block;border:1px solid var(--line);font-size:12px;background:var(--hover)}
+#lumen-workspace .template-card small{font-size:11px;color:var(--muted)}
+#lumen-workspace .template-preview{margin-top:28px;border-top:1px solid var(--line);padding-top:28px}
+#lumen-workspace .template-preview-layout{display:grid;grid-template-columns:minmax(170px,1fr) minmax(0,2fr);gap:28px}
+#lumen-workspace .template-preview-layout h3{font-size:14px;margin:18px 0 10px}
+#lumen-workspace .template-preview-layout p,#lumen-workspace .template-preview-layout li{font-size:12px;line-height:1.8;color:var(--muted)}
+#lumen-workspace .template-preview-layout ol{padding-left:18px;display:grid;gap:12px}
+#lumen-workspace .template-sample{border:1px solid var(--line);border-radius:10px;padding:24px;min-width:0}
+#lumen-workspace .sample-note{padding:14px;background:color-mix(in srgb,var(--accent) 10%,transparent);border-left:3px solid var(--accent);border-radius:4px}
+#lumen-workspace .sample-table{overflow:auto}
+#lumen-workspace .sample-table table{width:100%;border-collapse:collapse;font-size:11px;line-height:1.6}
+#lumen-workspace .sample-table td{border:1px solid var(--line);padding:8px;min-width:80px}
+#lumen-workspace .sample-table tr:first-child{background:var(--hover);font-weight:600}
+#lumen-workspace .radar-summary{display:grid;grid-template-columns:1fr 1fr 2fr;gap:24px;padding:24px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,transparent);margin-bottom:24px}
+#lumen-workspace .radar-summary>div{display:grid;gap:8px}
+#lumen-workspace .radar-summary strong{font-size:32px;font-weight:500}
+#lumen-workspace .radar-summary span,#lumen-workspace .radar-summary p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+#lumen-workspace .radar-filters{display:flex;gap:12px;margin-bottom:20px}
+#lumen-workspace .radar-filters input,#lumen-workspace .radar-filters select{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:7px;padding:11px 12px;font:inherit;font-size:13px;min-width:0}
+#lumen-workspace .radar-filters input{flex:1}
+#lumen-workspace .radar-filters select{max-width:45%}
+#lumen-workspace .radar-groups{display:grid;gap:20px;margin-top:18px}
+#lumen-workspace .radar-group{border:1px solid var(--line);border-radius:9px;overflow:hidden}
+#lumen-workspace .radar-group summary{cursor:pointer;padding:15px 18px;background:color-mix(in srgb,var(--accent) 6%,transparent);font-size:14px;overflow-wrap:anywhere}
+#lumen-workspace .radar-group summary small{float:right;color:var(--muted);font-size:11px;margin-left:12px}
+#lumen-workspace .radar-group .action-radar-list{margin:0;padding:0 14px}
+#lumen-workspace .radar-group .action-radar-list button:last-child{border:0}
+#lumen-workspace .radar-check{color:var(--accent);font-size:19px}
+#lumen-workspace .radar-empty{padding:36px;text-align:center;border:1px dashed var(--line);border-radius:10px}
+#lumen-workspace .radar-empty p{font-size:13px;color:var(--muted);line-height:1.7}
+#lumen-workspace .recent-pages{border-radius:10px;padding:18px;background:color-mix(in srgb,var(--accent) 6%,transparent)}
+#lumen-workspace .document-guide{border-radius:7px;background:color-mix(in srgb,var(--accent) 5%,transparent)}
+/* Only intentionally shaded blocks receive a theme tint; ordinary text stays uncoloured. */
+#lumen-workspace .bn-block-content[data-background-color=gray]{background:color-mix(in srgb,var(--accent) 10%,transparent)!important;color:var(--text)!important;border-left:3px solid var(--accent);padding:14px 16px;border-radius:5px;margin:12px 0}
+#lumen-workspace .template-card,#lumen-workspace .radar-group button{transition:background-color .18s ease,border-color .18s ease}
+@media(max-width:850px){#lumen-workspace .template-preview-layout{grid-template-columns:1fr}#lumen-workspace .radar-summary{grid-template-columns:1fr 1fr}#lumen-workspace .radar-summary p{grid-column:1/-1}}
+@media(max-width:580px){#lumen-workspace .tools-heading{flex-wrap:wrap}#lumen-workspace .template-card{padding:18px}#lumen-workspace .radar-filters{flex-direction:column}#lumen-workspace .radar-filters select{max-width:100%}#lumen-workspace .template-card-footer{flex-wrap:wrap}#lumen-workspace .template-sample{padding:12px}}
+@media(prefers-reduced-motion:reduce){#lumen-workspace .template-card,#lumen-workspace .radar-group button{transition:none}}
+#lumen-workspace .template-card .template-symbol{font-size:26px;color:var(--text)}
+#lumen-workspace .nav-row.active{background:color-mix(in srgb,var(--accent) 13%,transparent);box-shadow:inset 2px 0 var(--accent)}
+#lumen-workspace .workspace-guidance{display:flex;gap:12px;width:100%;padding:16px 18px;border-radius:7px;background:color-mix(in srgb,var(--accent) 10%,transparent);border-left:3px solid var(--accent);margin:12px 0;line-height:1.7}
+#lumen-workspace .workspace-guidance>span{color:var(--accent)}
+#lumen-workspace .workspace-guidance>div{flex:1;min-width:0}
+#lumen-workspace .template-preview{scroll-margin-top:24px}
+#lumen-workspace .template-cover{height:130px;margin:-24px -24px 22px;background-size:cover;background-position:center;border-bottom:1px solid var(--line)}
+#lumen-workspace .template-preview-cover{aspect-ratio:4/1;margin:-24px -24px 24px;background-size:cover;background-position:center;border-radius:9px 9px 0 0}
+#lumen-workspace .template-sample h3{font-size:19px;line-height:1.5;margin-top:26px}
+#lumen-workspace .template-sample p{line-height:1.85}
+#lumen-workspace .cover-grid .cover-swatch{height:85px;background-size:cover;background-position:center}
+#lumen-workspace .cover-grid button{gap:9px;padding:6px 6px 12px;border-radius:8px;overflow:hidden}
+@media(max-width:580px){#lumen-workspace .template-cover{margin:-18px -18px 18px}#lumen-workspace .template-preview-cover{margin:-12px -12px 18px}}
+/* Quiet document chrome: navigation only, no permanent editing bars. */
+#v-sheets #lumen-workspace .workspace>aside{background:color-mix(in srgb,var(--accent) 7%,var(--bg));border:1px solid var(--line);border-radius:10px;padding:16px 10px;align-self:start}
+#lumen-workspace .outline-rail{position:fixed;right:22px;top:180px;z-index:30;display:flex;justify-content:flex-end;max-height:65vh}
+#lumen-workspace .outline-trigger{width:36px;min-height:44px;padding:10px 8px;background:transparent;border:0;align-self:flex-start}
+#lumen-workspace .outline-trigger>span{display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-height:55vh;overflow:hidden}
+#lumen-workspace .outline-trigger i{display:block;height:2px;min-height:2px;background:var(--muted);opacity:.45;border-radius:2px;transition:opacity .15s}
+#lumen-workspace .outline-trigger i.current{opacity:1;background:var(--accent)}
+#lumen-workspace .outline-popover{position:absolute;right:0;top:0;width:270px;max-width:calc(100vw - 80px);max-height:65vh;overflow:auto;padding:14px 10px;background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 35px #0002;animation:outline-appear .16s ease-out}
+#lumen-workspace .outline-popover button{display:block;width:100%;text-align:left;font-size:12px;line-height:1.6;color:var(--muted);padding:7px 10px;white-space:normal;overflow-wrap:anywhere}
+#lumen-workspace .outline-popover button:hover,#lumen-workspace .outline-popover button[aria-current]{color:var(--text);background:var(--hover)}
+#lumen-workspace .outline-label{font-size:10px;letter-spacing:.12em;color:var(--muted);padding:8px 12px}
+#lumen-workspace .outline-stats{font-size:10px;line-height:1.7;color:var(--muted);padding:14px 12px 4px;border-top:1px solid var(--line);margin-top:10px}
+#lumen-workspace .editor-hint{margin-bottom:25px}
+#lumen-workspace .bn-formatting-toolbar{border-radius:9px;border:1px solid var(--line);box-shadow:0 8px 28px #0002;flex-wrap:wrap;max-width:calc(100vw - 36px)}
+@keyframes outline-appear{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:none}}
+@media(max-width:700px){#lumen-workspace .outline-rail{right:8px;top:128px}#lumen-workspace .outline-trigger{width:28px}#lumen-workspace .outline-trigger>span{max-height:120px}#v-sheets #lumen-workspace article{padding-right:30px}}
+@media(prefers-reduced-motion:reduce){#lumen-workspace .outline-popover{animation:none}#lumen-workspace .outline-trigger i{transition:none}}
+#lumen-workspace .collection-v2{border:1px solid var(--line);border-radius:10px;padding:16px;margin:20px 0;max-width:100%;font-size:13px}
+#lumen-workspace .collection-title{font-weight:600;flex:1;min-width:100px;background:transparent;border:0}
+#lumen-workspace .collection-views{display:flex;gap:8px;border-bottom:1px solid var(--line);padding:8px 0;margin-bottom:14px;flex-wrap:wrap}
+#lumen-workspace .collection-views button{padding:8px 12px}
+#lumen-workspace .collection-views button[aria-selected=true]{background:var(--hover);box-shadow:inset 0 -2px var(--accent)}
+#lumen-workspace .collection-controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+#lumen-workspace .collection-v2 input,#lumen-workspace .collection-v2 select,#lumen-workspace .collection-v2 textarea{color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:8px;font:inherit;min-width:0;max-width:100%;box-sizing:border-box}
+#lumen-workspace .collection-v2 input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+#lumen-workspace .collection-controls input{width:170px}
+#lumen-workspace .collection-properties{background:var(--hover);padding:16px;border-radius:8px;margin-bottom:18px}
+#lumen-workspace .collection-properties>div{display:flex;gap:10px;margin:8px 0}
+#lumen-workspace .collection-v2 .table-scroll{overflow:auto}
+#lumen-workspace .collection-v2 table{min-width:560px;width:100%;border-collapse:collapse}
+#lumen-workspace .collection-v2 th,#lumen-workspace .collection-v2 td{padding:8px;border-bottom:1px solid var(--line);text-align:left}
+#lumen-workspace .collection-v2 th small{font-weight:400;color:var(--muted);font-size:10px}
+#lumen-workspace .collection-v2 td input{width:100%;min-width:110px}
+#lumen-workspace .collection-v2 .record-card{display:flex;flex-direction:column;align-items:stretch;text-align:left;gap:7px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);width:100%;margin-bottom:10px;overflow-wrap:anywhere}
+#lumen-workspace .record-card span,#lumen-workspace .record-card small{font-size:11px;color:var(--muted)}
+#lumen-workspace .collection-board{display:flex;gap:16px;overflow:auto;padding:12px 0}
+#lumen-workspace .collection-board>section{flex:1 0 200px;padding:12px;background:var(--hover);border-radius:8px}
+#lumen-workspace .collection-board h4{font-size:13px;margin:4px 0 15px}
+#lumen-workspace .collection-board h4 small{float:right;color:var(--muted)}
+#lumen-workspace .calendar-controls{display:flex;align-items:center;gap:10px;margin:20px 0;flex-wrap:wrap}
+#lumen-workspace .calendar-scroll{overflow:auto}
+#lumen-workspace .collection-calendar{display:grid;grid-template-columns:repeat(7,minmax(90px,1fr));min-width:650px}
+#lumen-workspace .collection-calendar>strong{text-align:center;font-size:11px;padding:8px;color:var(--muted)}
+#lumen-workspace .calendar-day,#lumen-workspace .empty-day{min-height:100px;border:1px solid var(--line);padding:5px}
+#lumen-workspace .calendar-day>button{width:100%;display:flex;justify-content:space-between;font-size:11px}
+#lumen-workspace .calendar-day .record-card{padding:6px;font-size:11px;background:var(--hover)}
+#lumen-workspace .calendar-day .record-card small,#lumen-workspace .calendar-day .record-card span{display:none}
+#lumen-workspace .record-peek{position:fixed;inset:0 0 0 auto;margin:0;height:100dvh;max-height:100dvh;width:min(530px,94vw);box-sizing:border-box;border:0;border-left:1px solid var(--line);padding:24px;background:var(--bg);color:var(--text);overflow:auto;box-shadow:-12px 0 40px #0002}
+#lumen-workspace .record-peek::backdrop{background:#0004}
+#lumen-workspace .record-peek-head{display:flex;justify-content:space-between;align-items:center}
+#lumen-workspace .record-peek label{display:grid;gap:8px;margin:20px 0;font-size:12px;color:var(--muted)}
+#lumen-workspace .record-peek textarea{min-height:240px;resize:vertical;line-height:1.7;width:100%}
+#lumen-workspace .record-peek p{font-size:11px;color:var(--muted)}
+#lumen-workspace .record-peek>button{border:1px solid var(--line);padding:8px 12px;margin:8px 8px 0 0}
+#lumen-workspace .page-scroll>.cover{width:100%;min-width:0;box-sizing:border-box}
+@media(max-width:580px){#lumen-workspace .page-scroll>.cover{min-height:0;aspect-ratio:4/1}}
+/* Full-height Workspace navigation surface, flush with the shell. */
+body[data-view=sheets] #content{padding:0}
+#v-sheets #lumen-workspace .workspace{grid-template-columns:214px minmax(0,1fr);gap:0;min-height:calc(100dvh - 50px)}
+#v-sheets #lumen-workspace .workspace>aside{align-self:stretch;border:0;border-right:1px solid var(--line);border-radius:0;margin:0;padding:26px 14px 24px 24px;background:color-mix(in srgb,var(--accent) 7%,var(--bg));box-shadow:none}
+#v-sheets #lumen-workspace .workspace>main{padding:16px 24px 40px 20px;min-width:0;box-sizing:border-box}
+#v-sheets #lumen-workspace .workspace.sidebar-closed{grid-template-columns:minmax(0,1fr)}
+@media(max-width:850px){
+ #v-sheets #lumen-workspace .workspace{grid-template-columns:175px minmax(0,1fr)}
+ #v-sheets #lumen-workspace .workspace>aside{padding:22px 10px 24px 15px}
+ #v-sheets #lumen-workspace .workspace>main{padding:12px 15px 30px}
+}
+@media(max-width:580px){
+ #v-sheets #lumen-workspace .workspace{grid-template-columns:minmax(0,1fr)}
+ #v-sheets #lumen-workspace .workspace>aside{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:20px 15px;min-height:0}
+}
+#lumen-workspace .saved-view-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 0}
+#lumen-workspace .saved-view-controls select{font-weight:600;max-width:240px}
+#lumen-workspace .saved-view-controls button{padding:8px;font-size:12px}
+#lumen-workspace .collection-properties>div{flex-wrap:wrap;align-items:center}
+#lumen-workspace .collection-properties>div>input{flex:1 1 140px}
+#lumen-workspace .collection-properties label{display:flex;align-items:center;gap:6px;font-size:11px}
+#lumen-workspace .collection-v2 select[multiple]{min-width:130px;min-height:75px}
+#lumen-workspace .version-history{width:min(720px,92vw);max-height:82dvh;overflow:auto;box-sizing:border-box;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:24px}
+#lumen-workspace .version-history::backdrop{background:#0007}
+#lumen-workspace .version-history section{border-top:1px solid var(--line);padding:18px 0}
+#lumen-workspace .version-history small{display:block;color:var(--muted);font-size:11px;margin-top:6px}
+#lumen-workspace .version-history p{font-size:12px;line-height:1.7;overflow-wrap:anywhere;color:var(--muted)}
+#lumen-workspace .version-history section button{padding:8px 12px;background:var(--hover);border:1px solid var(--line)}
+#lumen-workspace .section-label.page-root-drop{border:1px solid transparent;border-radius:4px;text-align:left;margin:8px 0 3px;padding:6px 8px}
+#lumen-workspace .section-label.page-root-drop.drag-active{border:1px dashed var(--accent)}
+#lumen-workspace .page-move-notice:empty{display:none}
+#lumen-workspace .page-starters,#lumen-workspace .home-create,#lumen-workspace .library-empty{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#lumen-workspace .page-starters{padding:12px 0;color:var(--muted);font-size:13px}
+#lumen-workspace .page-starters button,#lumen-workspace .library-empty button,#lumen-workspace .home-create button:not(.primary){display:inline-flex;align-items:center;gap:6px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer}
+#lumen-workspace .page-starters button:hover,#lumen-workspace .library-empty button:hover{border-color:var(--accent)}
+#lumen-workspace .library-empty{padding:16px 0}
+
+#lumen-workspace [data-colour="Grey"]{--record-tint:#888888}
+#lumen-workspace [data-colour="Brown"]{--record-tint:#996b48}
+#lumen-workspace [data-colour="Orange"]{--record-tint:#dd812c}
+#lumen-workspace [data-colour="Yellow"]{--record-tint:#c6a424}
+#lumen-workspace [data-colour="Green"]{--record-tint:#42945a}
+#lumen-workspace [data-colour="Blue"]{--record-tint:#4989cf}
+#lumen-workspace [data-colour="Purple"]{--record-tint:#946ac5}
+#lumen-workspace [data-colour="Pink"]{--record-tint:#c6679b}
+#lumen-workspace [data-colour="Red"]{--record-tint:#cd5858}
+#lumen-workspace .collection-v2 .record-card[data-colour],
+#lumen-workspace .collection-v2 tr[data-colour] td,
+#lumen-workspace .collection-v2 .colour-rule select[data-colour] {
+  background-color:color-mix(in srgb,var(--record-tint) 24%,var(--bg));
+}
+#lumen-workspace .collection-v2 .record-card[data-colour],
+#lumen-workspace .collection-v2 tr[data-colour] td:first-child {
+  box-shadow:inset 3px 0 var(--record-tint);
+}
+#lumen-workspace .colour-rules {padding:12px;border:1px solid var(--line);border-radius:6px;margin-block:8px}
+#lumen-workspace .colour-rule {display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+
+#lumen-workspace .collection-v2:focus {outline:none}
+#lumen-workspace .calendar-day {position:relative;padding-top:38px}
+#lumen-workspace .calendar-day > .calendar-add-day {
+ position:absolute;inset:0;width:100%;height:100%;padding:8px;
+ display:flex;align-items:flex-start;justify-content:space-between;
+ border-radius:0;background:transparent;
+}
+#lumen-workspace .calendar-day > .calendar-add-day:hover {background:var(--hover)}
+#lumen-workspace .calendar-day > .calendar-add-day:focus-visible {outline:2px solid var(--accent);outline-offset:-2px}
+#lumen-workspace .calendar-day .record-card {position:relative;z-index:1}
+
+#lumen-workspace .collection-v2 .table-scroll {max-width:100%;overscroll-behavior-x:contain}
+#lumen-workspace .collection-v2 table {table-layout:auto}
+#lumen-workspace .collection-v2 td:not(:last-child),
+#lumen-workspace .collection-v2 th:not(:last-child) {min-width:160px}
+#lumen-workspace .collection-v2 td:last-child,
+#lumen-workspace .collection-v2 th:last-child {width:112px;min-width:112px;white-space:nowrap}
+#lumen-workspace .collection-v2 td:last-child button {white-space:nowrap}
+#lumen-workspace .collection-v2 .table-scroll:focus-visible {outline:2px solid var(--accent);outline-offset:2px}
+
+#lumen-workspace .calendar-draft {position:relative;z-index:2;background:var(--bg);padding:6px;border:1px solid var(--line);border-radius:6px}
+#lumen-workspace .calendar-draft input {width:100%}
+#lumen-workspace .calendar-draft > div {display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+
+
+/* The calendar inspector shares Lumen's document typography and theme surfaces. */
+#lumen-workspace .calendar-day-panel {
+ position:fixed;inset:12px 12px 12px auto;margin:0;width:min(420px,calc(100vw - 24px));
+ height:calc(100dvh - 24px);max-height:calc(100dvh - 24px);max-width:calc(100vw - 24px);
+ box-sizing:border-box;border:1px solid var(--line);border-radius:14px;padding:0;
+ background:var(--bg);color:var(--ink);overflow-y:auto;
+ box-shadow:0 24px 80px #0003;font:400 14px/1.5 'DM Sans',sans-serif;
+}
+#lumen-workspace .calendar-day-panel[open] {animation:day-panel-enter .22s ease-out}
+#lumen-workspace .calendar-day-panel::backdrop {background:#0002;backdrop-filter:blur(2px)}
+#lumen-workspace .day-panel-bar {
+ display:flex;align-items:center;justify-content:space-between;gap:16px;
+ padding:16px 20px;border-bottom:1px solid var(--line);
+}
+#lumen-workspace .day-panel-bar > span {display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px}
+#lumen-workspace .day-panel-bar .day-close {
+ display:grid;place-items:center;flex:none;width:32px;height:32px;border:0;
+ border-radius:7px;background:transparent;color:var(--muted);padding:0;
+}
+#lumen-workspace .day-panel-bar .day-close:hover {background:var(--hover);color:var(--ink)}
+#lumen-workspace .day-panel-date {
+ display:flex;align-items:center;gap:18px;margin:28px 24px 0;padding-bottom:26px;
+ border-bottom:1px solid var(--line);
+}
+#lumen-workspace .day-number {
+ display:grid;place-items:center;flex:none;width:68px;height:76px;border-radius:10px;
+ background:color-mix(in srgb,var(--accent) 12%,var(--bg));color:var(--ink);
+ font:400 42px/1 Newsreader,Georgia,serif;
+}
+#lumen-workspace .calendar-day-panel h2 {font:400 32px/1.1 Newsreader,Georgia,serif;letter-spacing:-.6px;margin:0 0 7px}
+#lumen-workspace .day-panel-date p {font-size:12px;color:var(--muted);margin:0}
+#lumen-workspace .day-panel-content {padding:24px}
+#lumen-workspace .day-empty {text-align:center;padding:24px 8px 28px}
+#lumen-workspace .day-empty-icon {
+ display:inline-grid;place-items:center;width:54px;height:54px;border-radius:50%;
+ background:var(--sidebar);color:var(--muted);margin-bottom:20px;
+}
+#lumen-workspace .day-empty h3 {font:400 26px/1.2 Newsreader,Georgia,serif;margin:0 0 12px;letter-spacing:-.3px}
+#lumen-workspace .day-empty p {color:var(--muted);font-size:13px;line-height:1.7;margin:0 auto;max-width:270px}
+#lumen-workspace .calendar-day-panel .day-add {
+ display:flex;align-items:center;justify-content:center;gap:8px;
+ width:100%;padding:12px 16px;border-radius:8px;font:500 13px 'DM Sans',sans-serif;
+}
+#lumen-workspace .calendar-day-panel .calendar-draft {padding:16px;border-radius:10px;background:var(--sidebar)}
+#lumen-workspace .calendar-day-panel .calendar-draft label {display:grid;gap:8px;font-size:12px;color:var(--muted)}
+#lumen-workspace .calendar-day-panel .calendar-draft input {font-size:14px;padding:11px}
+#lumen-workspace .calendar-day-panel .calendar-draft > div {justify-content:flex-end;margin-top:12px}
+#lumen-workspace .calendar-day-panel .calendar-draft button {padding:8px 14px;border-radius:6px}
+#lumen-workspace .calendar-day-panel .record-card {padding:16px;border-radius:9px}
+#lumen-workspace .calendar-day-panel .record-card strong {font-weight:500;font-size:14px}
+#lumen-workspace .calendar-day-panel .record-card span {display:none}
+@keyframes day-panel-enter {from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){#lumen-workspace .calendar-day-panel[open]{animation:none}}
+@media(max-width:480px){
+ #lumen-workspace .calendar-day-panel {inset:0 0 0 auto;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0}
+}

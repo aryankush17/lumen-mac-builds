@@ -1,0 +1,41 @@
+{
+  "niches": [],
+  "cities": [],
+  "places_api_key": "",
+  "groq_api_key": "",
+  "allowed_countries": [
+    "United States",
+    "United Arab Emirates",
+    "India"
+  ],
+  "max_per_search": 60,
+  "sender_accounts": [],
+  "price": "",
+  "physical_address": "",
+  "unsub_url": "",
+  "business": {
+    "name": "",
+    "address": "",
+    "email": "",
+    "phone": "",
+    "gstin": "",
+    "sac": "",
+    "upi": "",
+    "payment_link": "",
+    "payment_link_label": "Pay online",
+    "payment_link2": "",
+    "payment_link2_label": "",
+    "bank_details": "",
+    "default_currency": "USD",
+    "terms": ""
+  },
+  "invoice_seq": 0,
+  "invoice_fy": "",
+  "per_account_cap": 20,
+  "total_target": 100,
+  "min_delay": 45,
+  "max_delay": 120,
+  "test_mode": true,
+  "email_subject": "quick idea for {business}'s website",
+  "email_body": "Hi there,\n\nI put together a sample of what a sharper, higher-converting website could look like for {business}:\n\n{link}\n\nI'd build the whole thing - your branding, services, and photos - for a flat {price}, one-time, with no monthly fees.\n\nWorth a quick call to see if it's a fit? Reply with a couple of times that work for you and I'll set it up - no pressure either way.\n\n{sender}\n\n{address}\nNot interested? Just reply \"stop\" and I won't contact you again."
+}

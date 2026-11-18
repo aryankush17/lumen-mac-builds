@@ -1,0 +1,32 @@
+LEAD ENGINE - COMPLIANCE CHECKLIST  (read before you go live)
+This is a quick safety check. It is not legal advice - see LEGAL_AND_USE.txt and
+the legal\ folder for the full picture, and get local advice for your markets.
+
+SET UP RIGHT
+  [ ] Google Places API key added, with billing enabled and a budget alert set.
+  [ ] Country allow-list set to markets where opt-out B2B email is workable
+      (default: US, UAE, India). EU/UK/Canada left OFF unless you have consent.
+  [ ] Sending from a DEDICATED domain/account - not your personal/main inbox.
+  [ ] SPF, DKIM, and DMARC configured on the sending domain (SMTP host filled in).
+  [ ] New accounts warmed up; daily caps and delays kept conservative at first.
+
+EVERY EMAIL MUST
+  [ ] Go only to a business's own PUBLISHED address (no guessed/bought lists).
+  [ ] Have an accurate "From" and an honest subject line.
+  [ ] Contain your real mailing address (required - the app blocks sending
+      without one).
+  [ ] Contain a working unsubscribe (the app adds List-Unsubscribe + a "reply
+      stop" line automatically).
+
+ON AN ONGOING BASIS
+  [ ] Let the app check inboxes for "stop"/"unsubscribe" replies before each send
+      (it does this automatically) and never contact anyone who opted out.
+  [ ] Honour any opt-out received by any other route, without delay.
+  [ ] Keep the mailing address and unsubscribe in place - never strip them.
+  [ ] Re-read the rules if you add a new country or change your offer.
+
+DON'T
+  [ ] Don't email consumers/individuals without consent.
+  [ ] Don't use deceptive headers or subjects.
+  [ ] Don't add EU/UK/Canada without a documented consent basis.
+  [ ] Don't share your License Key or try to defeat the app's compliance controls.
